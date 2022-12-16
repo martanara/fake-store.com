@@ -1,7 +1,7 @@
 import React from "react";
 
-const NotFound = () => {
-    return <>NotFound</>;
-};
+import Heading from "components/Heading";
+
+const NotFound = () => <Heading>Contact</Heading>;
 
 export default NotFound;

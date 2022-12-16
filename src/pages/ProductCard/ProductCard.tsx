@@ -3,14 +3,14 @@ import React from "react";
 import Button from "components/Button";
 import { StyledProductCard, StyledImgContainer, StyledProductImg, StyledTitle } from "./ProductCard.styles";
 
-interface IProps {
+interface IProductCardProps {
     title: string;
     image: string;
     price: number;
     description: string;
 }
 
-const ProductCard = (props: IProps) => {
+const ProductCard = (props: IProductCardProps) => {
     return (
         <StyledProductCard>
             <StyledTitle>

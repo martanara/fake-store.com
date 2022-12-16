@@ -31,7 +31,12 @@ const Products = () => {
             <Heading>Our products</Heading>
             <StyledProductsContainer>
                 {productList.map((product) => (
-                    <ProductCard title={product.title} image={product.image} price={product.price} description={product.description} />
+                    <ProductCard 
+                        title={product.title} 
+                        image={product.image} 
+                        price={product.price} 
+                        description={product.description} 
+                    />
                 ))}
             </StyledProductsContainer>
         </React.Fragment>
