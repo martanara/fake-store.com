@@ -1,7 +1,14 @@
 import React from "react";
 
 import Button from "components/Button";
-import { StyledProductCard, StyledImgContainer, StyledProductImg, StyledTitle } from "./ProductCard.styles";
+import { 
+    StyledProductCard, 
+    StyledImgContainer, 
+    StyledProductImg, 
+    StyledTitle, 
+    StyledButtons 
+} from "./ProductCard.styles";
+import ProductModal from "pages/ProductModal";
 
 interface IProductCardProps {
     title: string;
@@ -20,7 +27,10 @@ const ProductCard = (props: IProductCardProps) => {
                 <StyledProductImg src={props.image} alt={props.title} />
             </StyledImgContainer>
             <p>$ {props.price}</p>
-            <Button>{"Add to cart"}</Button>
+            <StyledButtons>
+                <Button>{"Add to cart"}</Button>
+                <ProductModal />
+            </StyledButtons>
         </StyledProductCard>
     );
 };

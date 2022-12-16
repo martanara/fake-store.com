@@ -28,3 +28,9 @@ export const StyledProductImg = styled.img`
     width: 100%;
     object-fit: contain;
 `;
+
+export const StyledButtons = styled.div`
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+`
