@@ -1,5 +1,15 @@
 import React, { useState } from "react";
-import { StyledNav, StyledLogo, StyledMenu, StyledNavLink, StyledNavLinkActive, StyledIconButton } from "./Navbar.styles";
+
+import { 
+    StyledNav, 
+    StyledLogo, 
+    StyledMenu, 
+    StyledNavLink, 
+    StyledNavLinkActive, 
+    StyledIconButton, 
+    StyledCartButton
+} 
+    from "./Navbar.styles";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +28,7 @@ const Navbar = () => {
                 <StyledNavLinkActive to="/about">About</StyledNavLinkActive>
                 <StyledNavLinkActive to="/contact">Contact</StyledNavLinkActive>
                 <StyledNavLinkActive to="/login">Login</StyledNavLinkActive>
+                <StyledCartButton icon={"cart-shopping"} onClick={() => console.log("click")}/>
             </StyledMenu>
         </StyledNav>
     );

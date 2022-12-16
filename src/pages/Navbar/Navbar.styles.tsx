@@ -18,7 +18,7 @@ export const StyledNav = styled.div`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-    padding: 10px 0 10px 40px;
+    padding: 10px 20px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -49,7 +49,7 @@ export const StyledMenu = styled.div<StyledMenuProps>`
         justify-content: space-evenly;
         overflow: hidden;
         width: 100%;
-        height: 300px;
+        height: 400px;
         transition: max-height 0.3s ease-in;
     }
 `;
@@ -69,5 +69,12 @@ export const StyledIconButton = styled(IconButton)`
     }
 `;
 
+export const StyledCartButton = styled(IconButton)`
+    padding: 10px; 
+
+    @media (max-width: 900px) {
+        padding-bottom: 20px; 
+    }
+`;
 
 

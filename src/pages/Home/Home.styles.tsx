@@ -11,14 +11,14 @@ export const StyledHome = styled.div`
 `;
 export const StyledDescription = styled.div`
     flex: 1;
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     padding-left: 10px;
 `;
 
 export const StyledImgContainer = styled.div`
     flex: 1;
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
     padding-right: 10px;
 
