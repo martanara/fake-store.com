@@ -1,7 +1,7 @@
 import React from "react";
 
-const Contact = () => {
-    return <>Contact</>;
-};
+import Heading from "components/Heading";
+
+const Contact = () => <Heading>Contact</Heading>;
 
 export default Contact;

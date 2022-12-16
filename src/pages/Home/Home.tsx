@@ -1,18 +1,15 @@
+import Heading from "components/Heading";
 import React from "react";
 
-import { 
-    StyledDescription, 
-    StyledHeading, 
-    StyledHome, 
-    StyledImg, 
-    StyledImgContainer 
-} from "./Home.styles";
+import { StyledDescription, StyledHome, StyledImg, StyledImgContainer } from "./Home.styles";
 import { LoremIpsum } from "./LoremIpsum";
 
 const Home = () => {
     return (
         <React.Fragment>
-            <StyledHeading><h2>Welcome to FakeStore</h2></StyledHeading>
+            <Heading>
+                Welcome to FakeStore
+            </Heading>
             <StyledHome>
                 <StyledImgContainer>
                     <StyledImg src="https://picsum.photos/id/141/1000/1000" />
