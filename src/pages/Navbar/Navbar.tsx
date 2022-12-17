@@ -32,7 +32,7 @@ const Navbar = () => {
     return (
         <StyledNav>
             <StyledLogo to="/">
-                <p>FakeStore.com</p>
+                FakeStore.com
             </StyledLogo>
             <StyledIconButton icon={isOpen ? "xmark" : "bars"} onClick={toggleMenu} />
             <StyledMenu isOpen={isOpen}>

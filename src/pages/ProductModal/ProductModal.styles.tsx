@@ -8,11 +8,13 @@ export const StyledProductModal = styled.div`
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const StyledModalContent = styled.div`
     width: 50%;
-    margin: 0 auto;
     background-color: ${(props) => props.theme.colors.white};
     display: flex;
     flex-direction: column;
@@ -24,7 +26,6 @@ export const StyledModalContent = styled.div`
 export const StyledImgContainer = styled.div`
     height: 400px;
     width: 350px;
-    object-fit: contain;
     padding: 10px;
     background-color: ${(props) => props.theme.colors.white}
 `;

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import ProductCard from "pages/ProductCard";
-import Heading from "components/Heading";
-
-import { StyledProductsContainer } from "./Products.styles";
 import { useAppContext } from "context/context";
+import Heading from "components/Heading";
+import ProductCard from "pages/ProductCard";
+import { StyledProductsContainer } from "./Products.styles";
+import { getSortedList } from "utils/getSortedList";
 
 interface IProductsList {
     id: number;
@@ -18,43 +18,6 @@ const Products = () => {
     const { userToken } = useAppContext();
 
     const [productList, setProductList] = useState<IProductsList[]>([]);
-    const [sortType, setSortType] = useState<string>("asc");
-
-    useEffect(() => {
-        getProductList();
-    }, []);
-
-    useEffect(() => {
-        const sortProducts = (type: string) => {
-            if (type === "desc") {
-                return setProductList(
-                    productList.sort((a, b) => {
-                        if (a.title < b.title) {
-                            return -1;
-                        }
-                        if (a.title > b.title) {
-                            return 1;
-                        }
-                        return 0;
-                    })
-                );
-            }
-
-            return setProductList(
-                productList.sort((a, b) => {
-                    if (a.title > b.title) {
-                        return -1;
-                    }
-                    if (a.title < b.title) {
-                        return 1;
-                    }
-                    return 0;
-                })
-            );
-        };
-
-        sortProducts(sortType);
-    }, [productList, sortType]);
 
     const getProductList = () => {
         fetch("https://fakestoreapi.com/products")
@@ -62,13 +25,21 @@ const Products = () => {
             .then((json) => setProductList(json));
     };
 
+    useEffect(() => {
+        getProductList();
+    }, []);
+
     if (!userToken) return <Heading>Please log in</Heading>;
 
     return (
         <React.Fragment>
             <Heading>Our products</Heading>
             <label htmlFor="products">Sort products by name:</label>
-            <select name="products" id="products" onChange={(e) => setSortType(e.target.value)}>
+            <select
+                name="products"
+                id="products"
+                onChange={(event) => setProductList(getSortedList(productList, event.target.value, "title"))}
+            >
                 <option value="asc">Ascending</option>
                 <option value="desc">Descending</option>
             </select>

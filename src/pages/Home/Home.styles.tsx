@@ -5,7 +5,7 @@ export const StyledHome = styled.div`
     flex-direction: row;
     padding: 30px;
 
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
         flex-direction: column;
     }
 `;
@@ -22,7 +22,7 @@ export const StyledImgContainer = styled.div`
     margin: 0 auto;
     padding-right: 10px;
 
-    @media (max-width: 900px) {
+    @media (max-width: 600px) {
         padding-bottom: 20px;
     }
 `;

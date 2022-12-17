@@ -10,6 +10,7 @@ export const AppContextProvider = (props: IContextProps) => {
     const { children } = props;
 
     const [userToken, setUserToken] = useState<string>("");
+    const [selectedProducts, setSelectedProducts] = useState([]);
 
     return (
         <AppContext.Provider
