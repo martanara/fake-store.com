@@ -23,7 +23,7 @@ export const StyledModalContent = styled.div`
     padding: 30px;
 `;
 
-export const StyledImgContainer = styled.div`
+export const StyledImgWrapper = styled.div`
     height: 400px;
     width: 350px;
     padding: 10px;
@@ -36,6 +36,6 @@ export const StyledProductImg = styled.img`
     object-fit: contain;
 `;
 
-export const StyledDescription = styled.div`
+export const StyledDescription = styled.p`
     padding: 0 20px;
 `;

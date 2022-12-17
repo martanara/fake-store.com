@@ -11,8 +11,16 @@ export const StyledProductCard = styled.div`
     border: 1px solid ${(props) => props.theme.colors.moss};
 `;
 
-export const StyledTitle = styled.div`
-    min-height: 20%;
+export const StyledTitle = styled.h3`
+    min-height: calc(2 * 1.5em);
+    padding: 0 10px;
+    max-width: 22rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 `
 
 export const StyledImgContainer = styled.div`

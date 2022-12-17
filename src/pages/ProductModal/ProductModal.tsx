@@ -1,33 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Button from "components/Button";
-import { StyledProductModal, StyledModalContent, StyledImgContainer, StyledProductImg, StyledDescription } from "./ProductModal.styles";
-import { IProductCardProps } from "interfaces/interface";
+import { StyledProductModal, StyledModalContent, StyledImgWrapper, StyledProductImg, StyledDescription } from "./ProductModal.styles";
 
-const ProductModal = (props: IProductCardProps) => {
-    const [modalOpen, setModalOpen] = useState<boolean>(false);
+export interface IProductModalProps {
+    title: string;
+    image: string;
+    price: number;
+    description: string;
+    onClose: () => void;
+}
 
-    const toggleModal = () => {
-        setModalOpen((prevState) => !prevState);
-    };
-
+const ProductModal = (props: IProductModalProps) => {
     return (
-        <React.Fragment>
-            {modalOpen && (
-                <StyledProductModal>
-                    <StyledModalContent>
-                        <h2>{props.title}</h2>
-                        <StyledImgContainer>
-                            <StyledProductImg src={props.image} alt={props.title} />
-                        </StyledImgContainer>
-                            <StyledDescription><p>{props.description}</p></StyledDescription>
-                        <p>$ {props.price}</p>
-                        <Button onClick={toggleModal}>{"Close"}</Button>
-                    </StyledModalContent>
-                </StyledProductModal>
-            )}
-            <Button onClick={toggleModal}>{"More info"}</Button>
-        </React.Fragment>
+        <StyledProductModal>
+            <StyledModalContent>
+                <h2>{props.title}</h2>
+                <StyledImgWrapper>
+                    <StyledProductImg src={props.image} alt={props.title} />
+                </StyledImgWrapper>
+                <StyledDescription>{props.description}</StyledDescription>
+                <p>&#36; {props.price}</p>
+                <Button onClick={props.onClose}>Close</Button>
+            </StyledModalContent>
+        </StyledProductModal>
     );
 };
 
