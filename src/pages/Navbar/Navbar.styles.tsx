@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import IconButton from "components/IconButton";
+import Button from "components/Button";
 import styled from "styled-components";
 
 interface StyledMenuProps {
@@ -13,7 +14,7 @@ export const StyledNav = styled.div`
     align-items: center;
     flex-wrap: wrap;
     background: ${(props) => props.theme.colors.moss};
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-weight: 600;
 `;
 
@@ -32,9 +33,9 @@ export const StyledNavLink = styled(NavLink)`
 `;
 
 export const StyledNavLinkActive = styled(StyledNavLink)`
-    &.active{
+    &.active {
         color: ${(props) => props.theme.colors.green};
-    };
+    }
 `;
 
 export const StyledMenu = styled.div<StyledMenuProps>`
@@ -55,26 +56,36 @@ export const StyledMenu = styled.div<StyledMenuProps>`
 `;
 
 export const StyledLogo = styled(StyledNavLink)`
-   padding: 10px;
-   font-weight: 700;
-   font-size: 20px;
-   color: ${(props) => props.theme.colors.lightGreen}
+    padding: 10px;
+    font-weight: 700;
+    font-size: 20px;
+    color: ${(props) => props.theme.colors.lightGreen};
 `;
 
 export const StyledIconButton = styled(IconButton)`
     display: none;
-    
+
     @media (max-width: 900px) {
         display: flex;
     }
 `;
 
 export const StyledCartButton = styled(IconButton)`
-    padding: 10px; 
+    padding: 10px;
 
     @media (max-width: 900px) {
-        padding-bottom: 20px; 
+        padding-bottom: 20px;
     }
 `;
 
+export const StyledLogoutButton = styled(Button)`
+    font-family: "Quicksand", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 20px;
 
+    &:hover {
+        border: 2px solid ${(props) => props.theme.colors.moss};
+        background-color: ${(props) => props.theme.colors.moss};
+    }
+`;

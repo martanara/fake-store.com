@@ -1,7 +1,6 @@
-import Button from "components/Button";
-import { useAppContext } from "context/context";
 import React, { useState } from "react";
 
+import { useAppContext } from "context/context";
 import { 
     StyledNav, 
     StyledLogo, 
@@ -9,7 +8,8 @@ import {
     StyledNavLink, 
     StyledNavLinkActive, 
     StyledIconButton, 
-    StyledCartButton
+    StyledCartButton,
+    StyledLogoutButton
 } 
     from "./Navbar.styles";
 
@@ -36,7 +36,7 @@ const Navbar = () => {
                 <StyledNavLinkActive to="/products">Products</StyledNavLinkActive>
                 <StyledNavLinkActive to="/about">About</StyledNavLinkActive>
                 <StyledNavLinkActive to="/contact">Contact</StyledNavLinkActive>
-                { userToken ? <Button onClick={handleLogout}>Log out</Button> :  <StyledNavLinkActive to="/login">Login</StyledNavLinkActive>}
+                { userToken ? <StyledLogoutButton onClick={handleLogout}>Logout</StyledLogoutButton> :  <StyledNavLinkActive to="/login">Login</StyledNavLinkActive>}
                 <StyledCartButton icon={"cart-shopping"} onClick={() => console.log("click")}/>
             </StyledMenu>
         </StyledNav>
