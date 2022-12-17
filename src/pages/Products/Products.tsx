@@ -18,7 +18,7 @@ const Products = () => {
     const { userToken } = useAppContext();
 
     const [productList, setProductList] = useState<IProductsList[]>([]);
-    const [sortType, setSortType] = useState<string>("");
+    const [sortType, setSortType] = useState<string>("asc");
 
     useEffect(() => {
         getProductList();
@@ -26,7 +26,7 @@ const Products = () => {
 
     useEffect(() => {
         const sortProducts = (type: string) => {
-            if (type === "asc") {
+            if (type === "desc") {
                 return setProductList(
                     productList.sort((a, b) => {
                         if (a.title < b.title) {
