@@ -10,14 +10,17 @@ import { GlobalStyle } from "./styles/styles";
 import { theme } from "./styles/styles";
 
 import RoutesConfig from "./routes";
+import { AppContextProvider } from "context/context";
 
 const App = () => {
     library.add(fas);
 
     return (
         <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <RoutesConfig />
+            <AppContextProvider>
+                <GlobalStyle />
+                <RoutesConfig />
+            </AppContextProvider>
         </ThemeProvider>
     );
 };

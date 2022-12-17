@@ -4,6 +4,7 @@ import ProductCard from "pages/ProductCard";
 import Heading from "components/Heading";
 
 import { StyledProductsContainer } from "./Products.styles";
+import { useAppContext } from "context/context";
 
 interface IProductsList {
     id: number;
@@ -13,12 +14,8 @@ interface IProductsList {
     description: string;
 }
 
-interface IProps {
-    userToken?: string;
-}
-
-const Products = (props: IProps) => {
-    const { userToken } = props;
+const Products = () => {
+    const { userToken } = useAppContext();
 
     const [productList, setProductList] = useState<IProductsList[]>([]);
 

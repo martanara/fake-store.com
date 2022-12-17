@@ -7,13 +7,10 @@ import Button from "components/Button";
 import Heading from "components/Heading";
 import ErrorMessage from "./ErrorMessage";
 import { StyledForm, StyledFormInput, StyledLogin } from "./Login.styles";
+import { useAppContext } from "context/context";
 
-interface IProps {
-  userToken?: string;
-}
-
-const Login = (props: IProps) => {
-    const { userToken } = props;
+const Login = () => {
+  const { userToken } = useAppContext();
 
     const {
         register,

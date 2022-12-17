@@ -9,13 +9,14 @@ import Contact from "pages/Contact";
 import Login from "pages/Login";
 import NotFound from "pages/NotFound";
 import { getCookie } from "utils/getCookie";
+import { useAppContext } from "context/context";
 
 const RoutesConfig = () => {
-    const [userToken, setUserToken] = useState<string | undefined>(undefined);
+    const { setUserToken } = useAppContext();
 
     useEffect(() => {
         setUserToken(getCookie());
-    }, []);
+    });
 
     return (
         <BrowserRouter>
@@ -32,7 +33,7 @@ const RoutesConfig = () => {
                     path="/products"
                     element={
                         <Layout>
-                            <Products userToken={userToken} />
+                            <Products />
                         </Layout>
                     }
                 />
@@ -56,7 +57,7 @@ const RoutesConfig = () => {
                     path="/login"
                     element={
                         <Layout>
-                            <Login userToken={userToken}/>
+                            <Login />
                         </Layout>
                     }
                 />
