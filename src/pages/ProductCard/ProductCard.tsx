@@ -9,13 +9,7 @@ import {
     StyledButtons 
 } from "./ProductCard.styles";
 import ProductModal from "pages/ProductModal";
-
-interface IProductCardProps {
-    title: string;
-    image: string;
-    price: number;
-    description: string;
-}
+import { IProductCardProps } from "interfaces/interface";
 
 const ProductCard = (props: IProductCardProps) => {
     return (
@@ -29,7 +23,9 @@ const ProductCard = (props: IProductCardProps) => {
             <p>$ {props.price}</p>
             <StyledButtons>
                 <Button>{"Add to cart"}</Button>
-                <ProductModal />
+                <ProductModal 
+                    {...props} 
+                />
             </StyledButtons>
         </StyledProductCard>
     );
