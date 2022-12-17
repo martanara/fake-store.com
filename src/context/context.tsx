@@ -8,8 +8,8 @@ interface IContextProps {
 
 export const AppContextProvider = (props: IContextProps) => {
     const { children } = props;
-    
-    const [userToken, setUserToken] = useState<string | undefined>(undefined);
+
+    const [userToken, setUserToken] = useState<string>("");
 
     return (
         <AppContext.Provider
@@ -33,6 +33,6 @@ export const useAppContext = (): IProps => {
 };
 
 interface IProps {
-    userToken?: string;
+    userToken: string;
     setUserToken: (arg: string) => void;
 }

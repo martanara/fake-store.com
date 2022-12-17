@@ -8,9 +8,10 @@ import Heading from "components/Heading";
 import ErrorMessage from "./ErrorMessage";
 import { StyledForm, StyledFormInput, StyledLogin } from "./Login.styles";
 import { useAppContext } from "context/context";
+import { getCookie } from "utils/getCookie";
 
 const Login = () => {
-  const { userToken } = useAppContext();
+  const { userToken, setUserToken } = useAppContext();
 
     const {
         register,
@@ -20,7 +21,10 @@ const Login = () => {
 
     const onSubmit = () => {
         document.cookie = `token=${uuidv4()}`;
+        setUserToken(getCookie());
     };
+
+    console.log(userToken);
 
     if (userToken) return <Heading>Welcome back!</Heading>
 
