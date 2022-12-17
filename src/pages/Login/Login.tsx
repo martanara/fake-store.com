@@ -1,28 +1,71 @@
 import React from "react";
 
 import { useForm } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 
-const Login = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = (data: any) => console.log(data);
-  
-    console.log(watch("example")); // watch input value by passing the name of it
-  
+import Button from "components/Button";
+import Heading from "components/Heading";
+import ErrorMessage from "./ErrorMessage";
+import { StyledForm, StyledFormInput, StyledLogin } from "./Login.styles";
+
+interface IProps {
+  userToken?: string;
+}
+
+const Login = (props: IProps) => {
+    const { userToken } = props;
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm();
+
+    const onSubmit = () => {
+        document.cookie = `token=${uuidv4()}`;
+    };
+
+    if (userToken) return <Heading>Welcome back!</Heading>
+
     return (
-      /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* register your input into the hook by invoking the "register" function */}
-        <input defaultValue="test" {...register("example")} />
-        
-        {/* include validation with required or other standard HTML validation rules */}
-        <input {...register("exampleRequired", { required: true })} />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
-        
-        <input type="submit" />
-      </form>
+        <React.Fragment>
+            <Heading>Please enter your login details</Heading>
+            <StyledLogin>
+                <StyledForm onSubmit={handleSubmit(onSubmit)}>
+                    <StyledFormInput
+                        id="email"
+                        placeholder="Enter email address"
+                        {...register("email", {
+                            required: "required",
+                            pattern: {
+                                value: /\S+@\S+\.\S+/,
+                                message: "Entered value does not match email format",
+                            },
+                            minLength: {
+                                value: 3,
+                                message: "Min length is 3",
+                            },
+                        })}
+                        type="email"
+                    />
+                    {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+                    <StyledFormInput
+                        id="password"
+                        placeholder="Enter password"
+                        {...register("password", {
+                            required: "Password is required",
+                            minLength: {
+                                value: 3,
+                                message: "Min length is 3",
+                            },
+                        })}
+                    />
+                    {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+                    <Button type="submit">Submit</Button>
+                </StyledForm>
+            </StyledLogin>
+        </React.Fragment>
     );
-  }
+};
 
 export default Login;
-

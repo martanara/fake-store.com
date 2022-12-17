@@ -13,7 +13,13 @@ interface IProductsList {
     description: string;
 }
 
-const Products = () => {
+interface IProps {
+    userToken?: string;
+}
+
+const Products = (props: IProps) => {
+    const { userToken } = props;
+
     const [productList, setProductList] = useState<IProductsList[]>([]);
 
     useEffect(() => {
@@ -25,6 +31,8 @@ const Products = () => {
             .then((res) => res.json())
             .then((json) => setProductList(json));
     };
+
+    if (!userToken) return <Heading>Please log in</Heading>
 
     return (
         <React.Fragment>

@@ -5,6 +5,7 @@ interface ButtonProps {
     className?: string;
     children: string;
     onClick?: MouseEventHandler;
+    type?: string;
 }
 
 const defaultProps = {
