@@ -8,8 +8,8 @@ import {
     StyledTitle, 
     StyledButtons 
 } from "./ProductCard.styles";
-import ProductModal from "pages/ProductModal";
 import { IProductCardProps } from "interfaces/interface";
+import ProductModal from "pages/ProductModal";
 
 const ProductCard = (props: IProductCardProps) => {
     return (

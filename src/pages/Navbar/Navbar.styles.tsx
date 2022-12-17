@@ -70,11 +70,14 @@ export const StyledIconButton = styled(IconButton)`
     }
 `;
 
-export const StyledCartButton = styled(IconButton)`
-    padding: 10px;
-
-    @media (max-width: 900px) {
-        padding-bottom: 20px;
+export const StyledCartButton = styled.a`
+    color: ${(props) => props.theme.colors.white};
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    
+    &:hover {
+        color: ${(props) => props.theme.colors.green};
     }
 `;
 

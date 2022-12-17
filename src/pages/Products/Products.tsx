@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import ProductCard from "pages/ProductCard";
 import Heading from "components/Heading";

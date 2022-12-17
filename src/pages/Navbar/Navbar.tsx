@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { useAppContext } from "context/context";
-import { 
-    StyledNav, 
-    StyledLogo, 
-    StyledMenu, 
-    StyledNavLink, 
-    StyledNavLinkActive, 
-    StyledIconButton, 
+import {
+    StyledNav,
+    StyledLogo,
+    StyledMenu,
+    StyledNavLink,
+    StyledNavLinkActive,
+    StyledIconButton,
     StyledCartButton,
-    StyledLogoutButton
-} 
-    from "./Navbar.styles";
+    StyledLogoutButton,
+} from "./Navbar.styles";
+import CartModal from "pages/CartModal";
 
 const Navbar = () => {
+    const [cartModalOpen, setCartModalOpen] = useState(false);
+
     const { userToken, setUserToken } = useAppContext();
-    
+
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen(!isOpen);
@@ -23,7 +27,7 @@ const Navbar = () => {
     const handleLogout = () => {
         document.cookie = "token=";
         setUserToken("");
-    }
+    };
 
     return (
         <StyledNav>
@@ -36,8 +40,15 @@ const Navbar = () => {
                 <StyledNavLinkActive to="/products">Products</StyledNavLinkActive>
                 <StyledNavLinkActive to="/about">About</StyledNavLinkActive>
                 <StyledNavLinkActive to="/contact">Contact</StyledNavLinkActive>
-                { userToken ? <StyledLogoutButton onClick={handleLogout}>Logout</StyledLogoutButton> :  <StyledNavLinkActive to="/login">Login</StyledNavLinkActive>}
-                <StyledCartButton icon={"cart-shopping"} onClick={() => console.log("click")}/>
+                {userToken ? (
+                    <StyledLogoutButton onClick={handleLogout}>Logout</StyledLogoutButton>
+                ) : (
+                    <StyledNavLinkActive to="/login">Login</StyledNavLinkActive>
+                )}
+                <StyledCartButton onMouseEnter={() => setCartModalOpen(true)} onMouseLeave={() => setCartModalOpen(false)}>
+                    <FontAwesomeIcon icon={"shopping-cart"} />
+                </StyledCartButton>
+                {cartModalOpen && <CartModal />}
             </StyledMenu>
         </StyledNav>
     );
