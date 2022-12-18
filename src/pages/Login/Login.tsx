@@ -7,7 +7,7 @@ import { useAppContext } from "context/context";
 import { getCookie } from "utils/getCookie";
 import Button from "components/Button";
 import Heading from "components/Heading";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "components/ErrorMessage";
 import { StyledForm, StyledFormInput, StyledLogin } from "./Login.styles";
 
 const Login = () => {
