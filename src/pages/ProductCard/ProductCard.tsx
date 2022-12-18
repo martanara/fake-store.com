@@ -3,40 +3,61 @@ import React, { useState } from "react";
 import Button from "components/Button";
 import { StyledProductCard, StyledImgContainer, StyledProductImg, StyledTitle, StyledButtons } from "./ProductCard.styles";
 import ProductModal from "pages/ProductModal";
+import { IProduct } from "interfaces";
+import { useAppContext } from "context/context";
 
 export interface IProductCardProps {
-    title: string;
-    image: string;
-    price: number;
-    description: string;
+    product: IProduct;
 }
 
 const ProductCard = (props: IProductCardProps) => {
+    const { product } = props;
+
     const [modalOpen, setModalOpen] = useState<boolean>(false);
+    const { cartProducts, setCartProducts } = useAppContext();
 
     const toggleModal = () => {
         setModalOpen((prevState) => !prevState);
     };
 
+    const getProductById = (id: any) => {
+        return cartProducts.find((p: any) => p.item.id === id);
+    };
+
+    const addToCart = (item: any) => {
+        const existingProduct = getProductById(item.id);
+       
+        let newState: any = [];
+
+        if (existingProduct) {
+            newState = cartProducts.map((product: any) => {
+                if (product.item.id === existingProduct.item.id) {
+                    return {
+                        item,
+                        quantity: product.quantity + 1,
+                    };
+                }
+                return product;
+            });
+            setCartProducts(newState);
+        } else {
+            setCartProducts([...cartProducts, { item, quantity: 1 }]);
+        } 
+    };
+
+    console.log(cartProducts);
+
     return (
         <StyledProductCard>
-            <StyledTitle title={props.title}>{props.title}</StyledTitle>
+            <StyledTitle title={product.title}>{product.title}</StyledTitle>
             <StyledImgContainer>
-                <StyledProductImg src={props.image} alt={props.title} />
+                <StyledProductImg src={product.image} alt={product.title} />
             </StyledImgContainer>
-            <p>&#36; {props.price}</p>
+            <p>&#36; {product.price}</p>
             <StyledButtons>
-                <Button>Add to cart</Button>
+                <Button onClick={() => addToCart(product)}>Add to cart</Button>
                 <Button onClick={toggleModal}>More info</Button>
-                {modalOpen ? (
-                    <ProductModal
-                        title={props.title}
-                        image={props.image}
-                        price={props.price}
-                        description={props.description}
-                        onClose={toggleModal}
-                    />
-                ) : null}
+                {modalOpen ? <ProductModal product={product} onClose={toggleModal} /> : null}
             </StyledButtons>
         </StyledProductCard>
     );

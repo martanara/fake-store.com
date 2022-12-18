@@ -2,26 +2,26 @@ import React from "react";
 
 import Button from "components/Button";
 import { StyledProductModal, StyledModalContent, StyledImgWrapper, StyledProductImg, StyledDescription } from "./ProductModal.styles";
+import { IProduct } from "interfaces";
 
 export interface IProductModalProps {
-    title: string;
-    image: string;
-    price: number;
-    description: string;
+    product: IProduct;
     onClose: () => void;
 }
 
 const ProductModal = (props: IProductModalProps) => {
+    const { product, onClose } = props;
+
     return (
         <StyledProductModal>
             <StyledModalContent>
-                <h2>{props.title}</h2>
+                <h2>{product.title}</h2>
                 <StyledImgWrapper>
-                    <StyledProductImg src={props.image} alt={props.title} />
+                    <StyledProductImg src={product.image} alt={product.title} />
                 </StyledImgWrapper>
-                <StyledDescription>{props.description}</StyledDescription>
-                <p>&#36; {props.price}</p>
-                <Button onClick={props.onClose}>Close</Button>
+                <StyledDescription>{product.description}</StyledDescription>
+                <p>&#36; {product.price}</p>
+                <Button onClick={onClose}>Close</Button>
             </StyledModalContent>
         </StyledProductModal>
     );

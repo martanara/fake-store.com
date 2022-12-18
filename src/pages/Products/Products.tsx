@@ -5,19 +5,12 @@ import Heading from "components/Heading";
 import ProductCard from "pages/ProductCard";
 import { StyledProductsContainer } from "./Products.styles";
 import { getSortedList } from "utils/getSortedList";
-
-interface IProductsList {
-    id: number;
-    title: string;
-    image: string;
-    price: number;
-    description: string;
-}
+import { IProduct } from "interfaces";
 
 const Products = () => {
     const { userToken } = useAppContext();
 
-    const [productList, setProductList] = useState<IProductsList[]>([]);
+    const [productList, setProductList] = useState<IProduct[]>([]);
 
     const getProductList = () => {
         fetch("https://fakestoreapi.com/products")
@@ -47,10 +40,7 @@ const Products = () => {
                 {productList.map((product) => (
                     <ProductCard
                         key={product.id}
-                        title={product.title}
-                        image={product.image}
-                        price={product.price}
-                        description={product.description}
+                        product={product}
                     />
                 ))}
             </StyledProductsContainer>
