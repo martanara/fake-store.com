@@ -22,7 +22,7 @@ export const StyledTitle = styled.h3`
     -webkit-line-clamp: 2;
 `
 
-export const StyledImgContainer = styled.div`
+export const StyledImgWrapper = styled.div`
     height: 320px;
     width: 280px;
     object-fit: contain;

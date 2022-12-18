@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledProductsContainer = styled.div`
+export const StyledProductsWrapper = styled.div`
     justify-content: center;
     margin: 30px;
     display: flex;

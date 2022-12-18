@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useAppContext } from "context/context";
 import Heading from "components/Heading";
 import ProductCard from "components/ProductCard";
-import { StyledProductsContainer, StyledSelect } from "./Products.styles";
+import { StyledProductsWrapper, StyledSelect } from "./Products.styles";
 import { getSortedList } from "utils/getSortedList";
 import { IProduct } from "interfaces";
 
@@ -38,14 +38,14 @@ const Products = () => {
                     <option value="desc">Descending</option>
                 </select>
             </StyledSelect>
-            <StyledProductsContainer>
+            <StyledProductsWrapper>
                 {productList.map((product) => (
                     <ProductCard
                         key={product.id}
                         product={product}
                     />
                 ))}
-            </StyledProductsContainer>
+            </StyledProductsWrapper>
         </React.Fragment>
     );
 };

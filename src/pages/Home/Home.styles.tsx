@@ -16,7 +16,7 @@ export const StyledDescription = styled.div`
     padding-left: 10px;
 `;
 
-export const StyledImgContainer = styled.div`
+export const StyledImgWrapper = styled.div`
     flex: 1;
     max-width: 700px;
     margin: 0 auto;

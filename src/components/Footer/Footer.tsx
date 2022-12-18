@@ -1,13 +1,14 @@
-import Wrapper from "components/Wrapper";
 import React from "react";
+
+import Container from "components/Container";
 import { StyledFooter, StyledParagraph } from "./Footer.styles";
 
 const Footer = () => {
     return (
         <StyledFooter>
-            <Wrapper>
+            <Container>
                 <StyledParagraph>@fake-store.com 2022</StyledParagraph>
-            </Wrapper>
+            </Container>
         </StyledFooter>
     )
 };

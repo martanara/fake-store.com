@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Button from "components/Button";
-import { StyledProductCard, StyledImgContainer, StyledProductImg, StyledTitle, StyledButtons } from "./ProductCard.styles";
+import { StyledProductCard, StyledImgWrapper, StyledProductImg, StyledTitle, StyledButtons } from "./ProductCard.styles";
 import ProductModal from "components/ProductModal";
 import { IProduct } from "interfaces";
 import { useAppContext } from "context/context";
@@ -24,9 +24,9 @@ const ProductCard = (props: IProductCardProps) => {
     return (
         <StyledProductCard>
             <StyledTitle title={product.title}>{product.title}</StyledTitle>
-            <StyledImgContainer>
+            <StyledImgWrapper>
                 <StyledProductImg src={product.image} alt={product.title} />
-            </StyledImgContainer>
+            </StyledImgWrapper>
             <p>&#36; {product.price}</p>
             <StyledButtons>
                 <Button onClick={() => addToCart(product)}>Add to cart</Button>
