@@ -58,7 +58,7 @@ const Navbar = () => {
                     <FontAwesomeIcon icon={"shopping-cart"} />
                     <StyledNumber>{totalQuantity}</StyledNumber>
                 </StyledCartButton>
-                {cartModalOpen && <CartModal />}
+                {cartModalOpen ? <CartModal /> : null}
             </StyledMenu>
         </StyledNav>
     );

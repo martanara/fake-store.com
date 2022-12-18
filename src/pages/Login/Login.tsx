@@ -60,7 +60,7 @@ const Login = () => {
                         })}
                         type="password"
                     />
-                    {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+                    {errors.password ? <ErrorMessage>{errors.password.message}</ErrorMessage> : null}
                     <Button type="submit">Submit</Button>
                 </StyledForm>
             </StyledLogin>
