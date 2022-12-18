@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Button from "components/Button";
 import { StyledProductCard, StyledImgContainer, StyledProductImg, StyledTitle, StyledButtons } from "./ProductCard.styles";
-import ProductModal from "pages/ProductModal";
+import ProductModal from "components/ProductModal";
 import { IProduct } from "interfaces";
 import { useAppContext } from "context/context";
 

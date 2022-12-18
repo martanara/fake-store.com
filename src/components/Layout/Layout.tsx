@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
-import Footer from "pages/Footer";
-import Navbar from "pages/Navbar";
+import Footer from "components/Footer";
+import Navbar from "components/Navbar";
 import { StyledLayout } from "./Layout.styles";
 
 interface LayoutProps {

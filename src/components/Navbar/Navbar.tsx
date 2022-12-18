@@ -14,7 +14,7 @@ import {
     StyledLogoutButton,
     StyledNumber,
 } from "./Navbar.styles";
-import CartModal from "pages/CartModal";
+import CartModal from "components/CartModal";
 
 const Navbar = () => {
     const [cartModalOpen, setCartModalOpen] = useState(false);
