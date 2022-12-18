@@ -1,9 +1,16 @@
 import React from "react";
 
-import Button from "components/Button";
-import { StyledProductModal, StyledModalContent, StyledImgWrapper, StyledProductImg, StyledDescription, StyledButtons } from "./ProductModal.styles";
-import { IProduct } from "interfaces";
 import { useAppContext } from "context/context";
+import Button from "components/Button";
+import { IProduct } from "interfaces";
+import { 
+    StyledProductModal, 
+    StyledModalContent, 
+    StyledImgWrapper, 
+    StyledProductImg, 
+    StyledDescription, 
+    StyledButtons 
+} from "./ProductModal.styles";
 
 export interface IProductModalProps {
     product: IProduct;

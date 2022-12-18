@@ -1,4 +1,5 @@
 import { MouseEventHandler } from "react";
+
 import { StyledButton } from "./Button.styles";
 
 interface IButtonProps {

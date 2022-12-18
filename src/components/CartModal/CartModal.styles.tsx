@@ -1,18 +1,17 @@
-
 import styled from "styled-components";
 
 export const StyledCartModal = styled.div`
     position: absolute;
-    width: 400px;  
+    width: 400px;
     top: 65px;
-    right: -40px; 
+    right: -40px;
     background-color: ${(props) => props.theme.colors.white};
     font-size: 13px;
 `;
 
 export const StyledModalContent = styled.div`
-    background-color: ${(props) => props.theme.colors.white};
     padding: 0 10px;
+    background-color: ${(props) => props.theme.colors.white};
 `;
 
 export const StyledHeader = styled.h4`
@@ -31,4 +30,3 @@ export const StyledList = styled.ul`
 export const StyledListItem = styled.li`
     margin: 8px 0;
 `;
-

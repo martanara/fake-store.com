@@ -20,14 +20,14 @@ export const StyledTitle = styled.h3`
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-`
+`;
 
 export const StyledImgWrapper = styled.div`
     height: 320px;
     width: 280px;
     object-fit: contain;
     padding: 10px;
-    background-color: ${(props) => props.theme.colors.white}
+    background-color: ${(props) => props.theme.colors.white};
 `;
 
 export const StyledProductImg = styled.img`
@@ -40,4 +40,4 @@ export const StyledButtons = styled.div`
     display: flex;
     flex-direction: row;
     gap: 10px;
-`
+`;

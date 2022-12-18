@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useAppContext } from "context/context";
+import CartModal from "components/CartModal";
 import {
     StyledNav,
     StyledLogo,
@@ -14,14 +15,12 @@ import {
     StyledLogoutButton,
     StyledNumber,
 } from "./Navbar.styles";
-import CartModal from "components/CartModal";
 
 const Navbar = () => {
-    const [cartModalOpen, setCartModalOpen] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-
     const { userToken, setUserToken, getTotalQuantity, totalQuantity } = useAppContext();
 
+    const [isOpen, setIsOpen] = useState(false);
+    const [cartModalOpen, setCartModalOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen(!isOpen);
 

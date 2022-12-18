@@ -1,20 +1,26 @@
 import React, { useState } from "react";
 
+import { useAppContext } from "context/context";
 import Button from "components/Button";
-import { StyledProductCard, StyledImgWrapper, StyledProductImg, StyledTitle, StyledButtons } from "./ProductCard.styles";
 import ProductModal from "components/ProductModal";
 import { IProduct } from "interfaces";
-import { useAppContext } from "context/context";
+import { 
+    StyledProductCard, 
+    StyledImgWrapper, 
+    StyledProductImg, 
+    StyledTitle, 
+    StyledButtons 
+} from "./ProductCard.styles";
 
 export interface IProductCardProps {
     product: IProduct;
 }
 
 const ProductCard = (props: IProductCardProps) => {
+    const { addToCart } = useAppContext();
+
     const { product } = props;
 
-    const { addToCart } = useAppContext();
-    
     const [modalOpen, setModalOpen] = useState<boolean>(false);
 
     const toggleModal = () => {

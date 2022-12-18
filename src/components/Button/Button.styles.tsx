@@ -12,9 +12,9 @@ export const StyledButton = styled.button`
     font-size: 16px;
     cursor: pointer;
     transition: 0.5s all ease-out;
-    
+
     &:hover {
         border: 2px solid ${(props) => props.theme.colors.green};
         background-color: ${(props) => props.theme.colors.green};
-    } 
+    }
 `;

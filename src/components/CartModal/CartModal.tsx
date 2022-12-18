@@ -1,13 +1,20 @@
-import { useAppContext } from "context/context";
 import React, { useEffect } from "react";
 
-import { StyledCartModal, StyledModalContent, StyledList, StyledParagraph, StyledHeader, StyledListItem } from "./CartModal.styles";
+import { useAppContext } from "context/context";
+import { 
+    StyledCartModal, 
+    StyledModalContent, 
+    StyledList, 
+    StyledParagraph, 
+    StyledHeader, 
+    StyledListItem 
+} from "./CartModal.styles";
 
 const CartModal = () => {
     const { cartProducts, getTotalPrice, totalPrice } = useAppContext();
 
     useEffect(() => {
-        getTotalPrice()
+        getTotalPrice();
     }, [getTotalPrice]);
 
     return (
@@ -18,7 +25,7 @@ const CartModal = () => {
                     <StyledList>
                         {cartProducts.map((product) => (
                             <StyledListItem key={product.item.id}>
-                                <StyledHeader>{product.item.title}</StyledHeader> 
+                                <StyledHeader>{product.item.title}</StyledHeader>
                                 <StyledParagraph>price: &#36;{product.item.price}</StyledParagraph>
                                 <StyledParagraph>quantity: {product.quantity}</StyledParagraph>
                             </StyledListItem>

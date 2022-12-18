@@ -8,12 +8,12 @@ interface IStyledMenuProps {
 }
 
 export const StyledNav = styled.div`
-    padding: 0 40px;
-    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    height: 80px;
+    padding: 0 40px;
     background: ${(props) => props.theme.colors.moss};
     font-family: "Quicksand", sans-serif;
     font-weight: 600;
@@ -77,7 +77,7 @@ export const StyledCartButton = styled.div`
     font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
-    
+
     &:hover {
         color: ${(props) => props.theme.colors.green};
     }

@@ -1,10 +1,10 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
-import { ICartProduct } from "interfaces";
+import { ICartProduct, IProduct } from "interfaces";
 
 export const AppContext = createContext<any>(null);
 
 interface IContextProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 export const AppContextProvider = (props: IContextProps) => {
@@ -15,14 +15,14 @@ export const AppContextProvider = (props: IContextProps) => {
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [totalQuantity, setTotalQuantity] = useState<number>(0);
 
-    const getProductById = (id: any) => {
-        return cartProducts.find((p: any) => p.item.id === id);
+    const getProductById = (id: number) => {
+        return cartProducts.find((product: any) => product.item.id === id);
     };
 
-    const addToCart = (item: any) => {
+    const addToCart = (item: IProduct) => {
         const existingProduct = getProductById(item.id);
-       
-        let newState: any = [];
+
+        let newState: ICartProduct[] = [];
 
         if (existingProduct) {
             newState = cartProducts.map((product: any) => {
@@ -37,28 +37,28 @@ export const AppContextProvider = (props: IContextProps) => {
             setCartProducts(newState);
         } else {
             setCartProducts([...cartProducts, { item, quantity: 1 }]);
-        } 
+        }
         getTotalPrice();
-        getTotalQuantity(); 
+        getTotalQuantity();
     };
 
     const getTotalPrice = () => {
         let totalPrice = 0;
-        cartProducts.forEach((product) =>{
-            totalPrice += (product.item.price * product.quantity);
+        cartProducts.forEach((product) => {
+            totalPrice += product.item.price * product.quantity;
         });
 
         setTotalPrice(totalPrice);
-    }
+    };
 
     const getTotalQuantity = () => {
         let totalQuantity = 0;
-        cartProducts.forEach((product) =>{
-            totalQuantity += (product.quantity);
+        cartProducts.forEach((product) => {
+            totalQuantity += product.quantity;
         });
 
         setTotalQuantity(totalQuantity);
-    }
+    };
 
     return (
         <AppContext.Provider
@@ -72,7 +72,7 @@ export const AppContextProvider = (props: IContextProps) => {
                 getTotalPrice,
                 totalPrice,
                 getTotalQuantity,
-                totalQuantity
+                totalQuantity,
             }}
         >
             {children}
@@ -81,9 +81,10 @@ export const AppContextProvider = (props: IContextProps) => {
 };
 
 export const useAppContext = (): IProps => {
-    const { userToken, 
-        setUserToken, 
-        cartProducts, 
+    const {
+        userToken,
+        setUserToken,
+        cartProducts,
         setCartProducts,
         getProductById,
         addToCart,
@@ -103,7 +104,7 @@ export const useAppContext = (): IProps => {
         getTotalPrice,
         totalPrice,
         totalQuantity,
-        getTotalQuantity
+        getTotalQuantity,
     };
 };
 
@@ -111,9 +112,9 @@ interface IProps {
     userToken: string;
     setUserToken: (arg: string) => void;
     cartProducts: ICartProduct[];
-    setCartProducts: (arg: any) => void;
-    getProductById: (arg: any) => void;
-    addToCart: (arg: any) => void;
+    setCartProducts: (arg: ICartProduct[]) => void;
+    getProductById: (arg: number) => void;
+    addToCart: (arg: IProduct) => void;
     getTotalPrice: () => void;
     totalPrice: number;
     totalQuantity: number;

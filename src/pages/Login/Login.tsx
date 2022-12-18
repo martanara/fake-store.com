@@ -8,15 +8,19 @@ import { getCookie } from "utils/getCookie";
 import Button from "components/Button";
 import Heading from "components/Heading";
 import ErrorMessage from "components/ErrorMessage";
-import { StyledForm, StyledFormInput, StyledLogin } from "./Login.styles";
+import { 
+    StyledForm, 
+    StyledFormInput, 
+    StyledLogin 
+} from "./Login.styles";
 
 const Login = () => {
-  const { userToken, setUserToken } = useAppContext();
+    const { userToken, setUserToken } = useAppContext();
 
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm();
 
     const onSubmit = () => {
@@ -24,7 +28,7 @@ const Login = () => {
         setUserToken(getCookie());
     };
 
-    if (userToken) return <Heading>Welcome back!</Heading>
+    if (userToken) return <Heading>Welcome back!</Heading>;
 
     return (
         <React.Fragment>
@@ -38,11 +42,11 @@ const Login = () => {
                             required: "required",
                             pattern: {
                                 value: /\S+@\S+\.\S+/,
-                                message: "Entered value does not match email format"
+                                message: "Entered value does not match email format",
                             },
                             minLength: {
                                 value: 3,
-                                message: "Min length is 3"
+                                message: "Min length is 3",
                             },
                         })}
                         type="email"
@@ -55,8 +59,8 @@ const Login = () => {
                             required: "Password is required",
                             minLength: {
                                 value: 3,
-                                message: "Min length is 3"
-                            }
+                                message: "Min length is 3",
+                            },
                         })}
                         type="password"
                     />

@@ -10,7 +10,7 @@ const Footer = () => {
                 <StyledParagraph>@fake-store.com 2022</StyledParagraph>
             </Container>
         </StyledFooter>
-    )
+    );
 };
 
 export default Footer;

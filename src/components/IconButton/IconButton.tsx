@@ -1,7 +1,9 @@
 import React, { MouseEventHandler } from "react";
-import { StyledIconButton } from "./IconButton.styles";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+
+import { StyledIconButton } from "./IconButton.styles";
 
 interface IIconButtonProps {
     onClick?: MouseEventHandler;

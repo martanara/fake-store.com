@@ -1,7 +1,12 @@
 import React from "react";
 
 import Heading from "components/Heading";
-import { StyledDescription, StyledHome, StyledImg, StyledImgWrapper } from "./Home.styles";
+import { 
+    StyledDescription, 
+    StyledHome, 
+    StyledImg, 
+    StyledImgWrapper 
+} from "./Home.styles";
 
 const Home = () => {
     return (

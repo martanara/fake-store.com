@@ -3,9 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useAppContext } from "context/context";
 import Heading from "components/Heading";
 import ProductCard from "components/ProductCard";
-import { StyledProductsWrapper, StyledSelect } from "./Products.styles";
 import { getSortedList } from "utils/getSortedList";
 import { IProduct } from "interfaces";
+import { 
+    StyledProductsWrapper, 
+    StyledSelect 
+} from "./Products.styles";
 
 const Products = () => {
     const { userToken } = useAppContext();
@@ -40,10 +43,7 @@ const Products = () => {
             </StyledSelect>
             <StyledProductsWrapper>
                 {productList.map((product) => (
-                    <ProductCard
-                        key={product.id}
-                        product={product}
-                    />
+                    <ProductCard key={product.id} product={product} />
                 ))}
             </StyledProductsWrapper>
         </React.Fragment>
