@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const ErrorMessage = styled.div`
+export const StyledErrorMessage = styled.div`
     text-align: center;
-    min-height: 80px;
-    background-color: ${(props) => props.theme.colors.wine};
-    color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.wine};
+    font-size: 14px;
+    margin-top: -5px;
+    margin-bottom: 5px;
 `;

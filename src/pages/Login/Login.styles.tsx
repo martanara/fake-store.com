@@ -17,5 +17,5 @@ export const StyledFormInput = styled.input`
     border-radius: 5%;
     padding: 20px;
     background-color: ${(props) => props.theme.colors.white};
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 `;
