@@ -7,6 +7,10 @@ export const StyledCartModal = styled.div`
     right: -40px;
     background-color: ${(props) => props.theme.colors.white};
     font-size: 13px;
+
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 
 export const StyledModalContent = styled.div`
