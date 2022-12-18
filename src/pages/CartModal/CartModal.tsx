@@ -1,19 +1,14 @@
 import { useAppContext } from "context/context";
-import React from "react";
+import React, { useEffect } from "react";
 
 import { StyledProductModal, StyledModalContent } from "./CartModal.styles";
 
 const CartModal = () => {
-    const { cartProducts } = useAppContext();
+    const { cartProducts, getTotalPrice, totalPrice } = useAppContext();
 
-    const getTotalPrice = () => {
-        let totalPrice= 0;
-        cartProducts.forEach((product) =>{
-            totalPrice += (product.item.price * product.quantity);
-        });
-
-        return totalPrice;
-    }
+    useEffect(() => {
+        getTotalPrice()
+    }, [getTotalPrice]);
 
     return (
         <React.Fragment>
@@ -28,7 +23,7 @@ const CartModal = () => {
                             </li>
                         ))}
                     </ul>
-                    <p>Total price: {getTotalPrice()}</p>
+                    <p>Total price: {totalPrice}</p>
                 </StyledModalContent>
             </StyledProductModal>
         </React.Fragment>

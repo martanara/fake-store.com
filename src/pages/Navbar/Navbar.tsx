@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -19,7 +19,7 @@ import CartModal from "pages/CartModal";
 const Navbar = () => {
     const [cartModalOpen, setCartModalOpen] = useState(false);
 
-    const { userToken, setUserToken } = useAppContext();
+    const { userToken, setUserToken, getTotalQuantity, totalQuantity } = useAppContext();
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -29,6 +29,10 @@ const Navbar = () => {
         document.cookie = "token=";
         setUserToken("");
     };
+
+    useEffect(() => {
+        getTotalQuantity()
+    }, [getTotalQuantity]);
 
     return (
         <StyledNav>
@@ -48,7 +52,7 @@ const Navbar = () => {
                 )}
                 <StyledCartButton onMouseEnter={() => setCartModalOpen(true)} onMouseLeave={() => setCartModalOpen(false)}>
                     <FontAwesomeIcon icon={"shopping-cart"} />
-                    <StyledNumber>1</StyledNumber>
+                    <StyledNumber>{totalQuantity}</StyledNumber>
                 </StyledCartButton>
                 {cartModalOpen && <CartModal />}
             </StyledMenu>

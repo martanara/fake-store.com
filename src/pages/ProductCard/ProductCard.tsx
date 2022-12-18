@@ -14,38 +14,38 @@ const ProductCard = (props: IProductCardProps) => {
     const { product } = props;
 
     const [modalOpen, setModalOpen] = useState<boolean>(false);
-    const { cartProducts, setCartProducts } = useAppContext();
+    const { cartProducts, setCartProducts, addToCart } = useAppContext();
 
     const toggleModal = () => {
         setModalOpen((prevState) => !prevState);
     };
 
-    const getProductById = (id: any) => {
-        return cartProducts.find((p: any) => p.item.id === id);
-    };
+    // const getProductById = (id: any) => {
+    //     return cartProducts.find((p: any) => p.item.id === id);
+    // };
 
-    const addToCart = (item: any) => {
-        const existingProduct = getProductById(item.id);
+    // const addToCart = (item: any) => {
+    //     const existingProduct = getProductById(item.id);
        
-        let newState: any = [];
+    //     let newState: any = [];
 
-        if (existingProduct) {
-            newState = cartProducts.map((product: any) => {
-                if (product.item.id === existingProduct.item.id) {
-                    return {
-                        item,
-                        quantity: product.quantity + 1,
-                    };
-                }
-                return product;
-            });
-            setCartProducts(newState);
-        } else {
-            setCartProducts([...cartProducts, { item, quantity: 1 }]);
-        } 
-    };
+    //     if (existingProduct) {
+    //         newState = cartProducts.map((product: any) => {
+    //             if (product.item.id === existingProduct.item.id) {
+    //                 return {
+    //                     item,
+    //                     quantity: product.quantity + 1,
+    //                 };
+    //             }
+    //             return product;
+    //         });
+    //         setCartProducts(newState);
+    //     } else {
+    //         setCartProducts([...cartProducts, { item, quantity: 1 }]);
+    //     } 
+    // };
 
-    console.log(cartProducts);
+    // console.log(cartProducts);
 
     return (
         <StyledProductCard>
