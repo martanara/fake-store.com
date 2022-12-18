@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+import { useAppContext } from "context/context";
 import Layout from "components/Layout";
 import Home from "pages/Home";
 import Products from "pages/Products";
@@ -9,7 +10,7 @@ import Contact from "pages/Contact";
 import Login from "pages/Login";
 import NotFound from "pages/NotFound";
 import { getCookie } from "utils/getCookie";
-import { useAppContext } from "context/context";
+import PrivateRoute from "./privateRoute";
 
 const RoutesConfig = () => {
     const { setUserToken } = useAppContext();
@@ -32,9 +33,11 @@ const RoutesConfig = () => {
                 <Route
                     path="/products"
                     element={
-                        <Layout>
-                            <Products />
-                        </Layout>
+                        <PrivateRoute>
+                            <Layout>
+                                <Products />
+                            </Layout>
+                        </PrivateRoute>
                     }
                 />
                 <Route

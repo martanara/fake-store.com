@@ -15,7 +15,7 @@ export const StyledForm = styled.form`
 export const StyledFormInput = styled.input`
     border: 2px solid ${(props) => props.theme.colors.lightGreen};
     border-radius: 5%;
+    margin-bottom: 15px;
     padding: 20px;
     background-color: ${(props) => props.theme.colors.white};
-    margin-bottom: 15px;
 `;

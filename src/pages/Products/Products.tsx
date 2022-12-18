@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Navigate } from "react-router-dom";
 
 import { useAppContext } from "context/context";
 import Heading from "components/Heading";
@@ -11,8 +12,6 @@ import {
 } from "./Products.styles";
 
 const Products = () => {
-    const { userToken } = useAppContext();
-
     const [productList, setProductList] = useState<IProduct[]>([]);
 
     const getProductList = () => {
@@ -24,8 +23,6 @@ const Products = () => {
     useEffect(() => {
         getProductList();
     }, []);
-
-    if (!userToken) return <Heading>Please log in</Heading>;
 
     return (
         <React.Fragment>
