@@ -12,15 +12,13 @@ export const StyledNav = styled.div`
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    height: 80px;
-    padding: 0 40px;
     background: ${(props) => props.theme.colors.moss};
     font-family: "Quicksand", sans-serif;
     font-weight: 600;
 `;
 
 export const StyledNavLink = styled(NavLink)`
-    padding: 10px 20px;
+    padding: 30px 20px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
@@ -30,6 +28,10 @@ export const StyledNavLink = styled(NavLink)`
 
     &:hover {
         opacity: 0.5;
+    }
+
+    @media (max-width: 900px) {
+        padding: 0;
     }
 `;
 
@@ -49,15 +51,15 @@ export const StyledMenu = styled.div<IStyledMenuProps>`
         display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
         flex-direction: column;
         justify-content: space-evenly;
-        overflow: hidden;
         width: 100%;
         height: 400px;
-        transition: max-height 0.3s ease-in;
+        background-color: ${(props) => props.theme.colors.moss};
     }
 `;
 
 export const StyledLogo = styled(StyledNavLink)`
-    padding: 10px;
+    padding: 30px 20px;
+    margin-left: 20px;
     font-weight: 700;
     font-size: 20px;
     color: ${(props) => props.theme.colors.lightGreen};
@@ -68,6 +70,7 @@ export const StyledIconButton = styled(IconButton)`
 
     @media (max-width: 900px) {
         display: flex;
+        margin-right: 20px;
     }
 `;
 
@@ -77,6 +80,7 @@ export const StyledCartButton = styled.div`
     font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
+    margin-right: 30px;
 
     &:hover {
         color: ${(props) => props.theme.colors.green};
