@@ -3,7 +3,7 @@ import IconButton from "components/IconButton";
 import Button from "components/Button";
 import styled from "styled-components";
 
-interface StyledMenuProps {
+interface IStyledMenuProps {
     isOpen: boolean;
 }
 
@@ -39,7 +39,7 @@ export const StyledNavLinkActive = styled(StyledNavLink)`
     }
 `;
 
-export const StyledMenu = styled.div<StyledMenuProps>`
+export const StyledMenu = styled.div<IStyledMenuProps>`
     position: relative;
     display: flex;
     justify-content: space-between;

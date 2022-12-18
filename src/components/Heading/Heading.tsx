@@ -2,11 +2,11 @@ import React from "react";
 
 import { StyledHeading } from "./Heading.styles";
 
-interface HeadingProps {
+interface IHeadingProps {
     children: string;
 }
 
-const Heading = (props: HeadingProps) => {
+const Heading = (props: IHeadingProps) => {
     const { children } = props;
 
     return (

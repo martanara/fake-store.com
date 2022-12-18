@@ -4,11 +4,11 @@ import Footer from "components/Footer";
 import Navbar from "components/Navbar";
 import { StyledLayout } from "./Layout.styles";
 
-interface LayoutProps {
+interface ILayoutProps {
     children: ReactNode;
 }
 
-const Layout = (props: LayoutProps) => {
+const Layout = (props: ILayoutProps) => {
     return (
         <React.Fragment>
             <Navbar />

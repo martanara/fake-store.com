@@ -1,7 +1,7 @@
 import { MouseEventHandler } from "react";
 import { StyledButton } from "./Button.styles";
 
-interface ButtonProps {
+interface IButtonProps {
     className?: string;
     children: string;
     onClick?: MouseEventHandler;
@@ -12,7 +12,7 @@ const defaultProps = {
     onClick: () => {},
 };
 
-const Button = (props: ButtonProps) => (
+const Button = (props: IButtonProps) => (
     <StyledButton className={props.className} onClick={props.onClick}>
         {props.children}
     </StyledButton>

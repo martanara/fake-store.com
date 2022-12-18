@@ -3,18 +3,14 @@ import { StyledIconButton } from "./IconButton.styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-interface IconButtonProps {
+interface IIconButtonProps {
     onClick?: MouseEventHandler;
     dark?: boolean;
     icon: IconProp;
     className?: string;
 }
 
-const defaultProps = {
-    onClick: () => {},
-};
-
-const IconButton = (props: IconButtonProps) => {
+const IconButton = (props: IIconButtonProps) => {
     const { onClick, icon, dark } = props;
 
     return (
@@ -23,7 +19,5 @@ const IconButton = (props: IconButtonProps) => {
         </StyledIconButton>
     );
 };
-
-IconButton.defaultProps = defaultProps;
 
 export default IconButton;
