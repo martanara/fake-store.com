@@ -1,22 +1,34 @@
 
 import styled from "styled-components";
 
-export const StyledProductModal = styled.div`
-    position: fixed;  
-    top: 80px;
-    right: 0; 
-    height: 300px;
-    width: 200px;
+export const StyledCartModal = styled.div`
+    position: absolute;
+    width: 400px;  
+    top: 65px;
+    right: -40px; 
     background-color: ${(props) => props.theme.colors.white};
+    font-size: 13px;
 `;
 
 export const StyledModalContent = styled.div`
-    width: 50%;
-    margin: 0 auto;
     background-color: ${(props) => props.theme.colors.white};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+    padding: 0 10px;
 `;
+
+export const StyledHeader = styled.h4`
+    margin: 0;
+`;
+
+export const StyledParagraph = styled.p`
+    margin: 0;
+`;
+
+export const StyledList = styled.ul`
+    border: 1px solid ${(props) => props.theme.colors.wine};
+    width: 90%;
+`;
+
+export const StyledListItem = styled.li`
+    margin: 8px 0;
+`;
+

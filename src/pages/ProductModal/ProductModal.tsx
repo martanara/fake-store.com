@@ -1,8 +1,9 @@
 import React from "react";
 
 import Button from "components/Button";
-import { StyledProductModal, StyledModalContent, StyledImgWrapper, StyledProductImg, StyledDescription } from "./ProductModal.styles";
+import { StyledProductModal, StyledModalContent, StyledImgWrapper, StyledProductImg, StyledDescription, StyledButtons } from "./ProductModal.styles";
 import { IProduct } from "interfaces";
+import { useAppContext } from "context/context";
 
 export interface IProductModalProps {
     product: IProduct;
@@ -11,6 +12,8 @@ export interface IProductModalProps {
 
 const ProductModal = (props: IProductModalProps) => {
     const { product, onClose } = props;
+
+    const { addToCart } = useAppContext();
 
     return (
         <StyledProductModal>
@@ -21,7 +24,13 @@ const ProductModal = (props: IProductModalProps) => {
                 </StyledImgWrapper>
                 <StyledDescription>{product.description}</StyledDescription>
                 <p>&#36; {product.price}</p>
-                <Button onClick={onClose}>Close</Button>
+                <StyledButtons>
+                    <Button onClick={onClose}>Close</Button>
+                    <Button onClick={() => {
+                        addToCart(product);
+                        onClose();
+                    }}>Add to cart</Button>
+                </StyledButtons>
             </StyledModalContent>
         </StyledProductModal>
     );

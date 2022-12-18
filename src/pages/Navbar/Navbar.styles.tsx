@@ -9,6 +9,7 @@ interface StyledMenuProps {
 
 export const StyledNav = styled.div`
     padding: 0 40px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,7 +71,7 @@ export const StyledIconButton = styled(IconButton)`
     }
 `;
 
-export const StyledCartButton = styled.a`
+export const StyledCartButton = styled.div`
     position: relative;
     color: ${(props) => props.theme.colors.white};
     font-size: 20px;

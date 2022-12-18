@@ -18,12 +18,16 @@ import CartModal from "pages/CartModal";
 
 const Navbar = () => {
     const [cartModalOpen, setCartModalOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const { userToken, setUserToken, getTotalQuantity, totalQuantity } = useAppContext();
 
-    const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen(!isOpen);
+
+    const toggleModal = () => {
+        setCartModalOpen((prevState) => !prevState);
+    };
 
     const handleLogout = () => {
         document.cookie = "token=";
@@ -50,7 +54,7 @@ const Navbar = () => {
                 ) : (
                     <StyledNavLinkActive to="/login">Login</StyledNavLinkActive>
                 )}
-                <StyledCartButton onMouseEnter={() => setCartModalOpen(true)} onMouseLeave={() => setCartModalOpen(false)}>
+                <StyledCartButton onClick={toggleModal}>
                     <FontAwesomeIcon icon={"shopping-cart"} />
                     <StyledNumber>{totalQuantity}</StyledNumber>
                 </StyledCartButton>

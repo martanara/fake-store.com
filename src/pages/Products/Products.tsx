@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useAppContext } from "context/context";
 import Heading from "components/Heading";
 import ProductCard from "pages/ProductCard";
-import { StyledProductsContainer } from "./Products.styles";
+import { StyledProductsContainer, StyledSelect } from "./Products.styles";
 import { getSortedList } from "utils/getSortedList";
 import { IProduct } from "interfaces";
 
@@ -27,15 +27,17 @@ const Products = () => {
     return (
         <React.Fragment>
             <Heading>Our products</Heading>
-            <label htmlFor="products">Sort products by name:</label>
-            <select
-                name="products"
-                id="products"
-                onChange={(event) => setProductList(getSortedList(productList, event.target.value, "title"))}
-            >
-                <option value="asc">Ascending</option>
-                <option value="desc">Descending</option>
-            </select>
+            <StyledSelect>
+                <label htmlFor="products">Sort products by name:</label>
+                <select
+                    name="products"
+                    id="products"
+                    onChange={(event) => setProductList(getSortedList(productList, event.target.value, "title"))}
+                >
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </StyledSelect>
             <StyledProductsContainer>
                 {productList.map((product) => (
                     <ProductCard

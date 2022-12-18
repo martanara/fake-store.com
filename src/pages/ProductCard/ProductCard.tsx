@@ -13,39 +13,13 @@ export interface IProductCardProps {
 const ProductCard = (props: IProductCardProps) => {
     const { product } = props;
 
+    const { addToCart } = useAppContext();
+    
     const [modalOpen, setModalOpen] = useState<boolean>(false);
-    const { cartProducts, setCartProducts, addToCart } = useAppContext();
 
     const toggleModal = () => {
         setModalOpen((prevState) => !prevState);
     };
-
-    // const getProductById = (id: any) => {
-    //     return cartProducts.find((p: any) => p.item.id === id);
-    // };
-
-    // const addToCart = (item: any) => {
-    //     const existingProduct = getProductById(item.id);
-       
-    //     let newState: any = [];
-
-    //     if (existingProduct) {
-    //         newState = cartProducts.map((product: any) => {
-    //             if (product.item.id === existingProduct.item.id) {
-    //                 return {
-    //                     item,
-    //                     quantity: product.quantity + 1,
-    //                 };
-    //             }
-    //             return product;
-    //         });
-    //         setCartProducts(newState);
-    //     } else {
-    //         setCartProducts([...cartProducts, { item, quantity: 1 }]);
-    //     } 
-    // };
-
-    // console.log(cartProducts);
 
     return (
         <StyledProductCard>

@@ -1,7 +1,7 @@
 import { useAppContext } from "context/context";
 import React, { useEffect } from "react";
 
-import { StyledProductModal, StyledModalContent } from "./CartModal.styles";
+import { StyledCartModal, StyledModalContent, StyledList, StyledParagraph, StyledHeader, StyledListItem } from "./CartModal.styles";
 
 const CartModal = () => {
     const { cartProducts, getTotalPrice, totalPrice } = useAppContext();
@@ -12,20 +12,21 @@ const CartModal = () => {
 
     return (
         <React.Fragment>
-            <StyledProductModal>
+            <StyledCartModal>
                 <StyledModalContent>
-                    <ul>
+                    <h3>Your products:</h3>
+                    <StyledList>
                         {cartProducts.map((product) => (
-                            <li key={product.item.id}>
-                                <p>name: {product.item.title}</p> 
-                                <p>price: {product.item.price}</p>
-                                <p>quantity: {product.quantity}</p>
-                            </li>
+                            <StyledListItem key={product.item.id}>
+                                <StyledHeader>{product.item.title}</StyledHeader> 
+                                <StyledParagraph>price: &#36;{product.item.price}</StyledParagraph>
+                                <StyledParagraph>quantity: {product.quantity}</StyledParagraph>
+                            </StyledListItem>
                         ))}
-                    </ul>
-                    <p>Total price: {totalPrice}</p>
+                    </StyledList>
+                    <p>Total price: &#36;{totalPrice.toFixed(2)}</p>
                 </StyledModalContent>
-            </StyledProductModal>
+            </StyledCartModal>
         </React.Fragment>
     );
 };

@@ -5,9 +5,8 @@ export const StyledProductCard = styled.div`
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    padding: 0 15px;
+    padding: 15px;
     width: 320px;
-    height: 600px;
     border: 1px solid ${(props) => props.theme.colors.moss};
 `;
 
