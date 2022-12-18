@@ -71,6 +71,7 @@ export const StyledIconButton = styled(IconButton)`
 `;
 
 export const StyledCartButton = styled.a`
+    position: relative;
     color: ${(props) => props.theme.colors.white};
     font-size: 20px;
     cursor: pointer;
@@ -79,6 +80,20 @@ export const StyledCartButton = styled.a`
     &:hover {
         color: ${(props) => props.theme.colors.green};
     }
+`;
+
+export const StyledNumber = styled.div`
+    position: absolute;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+    top: -10px;
+    right: -10px;
+    font-size: 15px;
+    border: 1px solid ${(props) => props.theme.colors.wine};
+    background-color: ${(props) => props.theme.colors.wine};
+    border-radius: 50%;
+    color: ${(props) => props.theme.colors.white};
 `;
 
 export const StyledLogoutButton = styled(Button)`

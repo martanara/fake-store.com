@@ -12,6 +12,7 @@ import {
     StyledIconButton,
     StyledCartButton,
     StyledLogoutButton,
+    StyledNumber,
 } from "./Navbar.styles";
 import CartModal from "pages/CartModal";
 
@@ -47,6 +48,7 @@ const Navbar = () => {
                 )}
                 <StyledCartButton onMouseEnter={() => setCartModalOpen(true)} onMouseLeave={() => setCartModalOpen(false)}>
                     <FontAwesomeIcon icon={"shopping-cart"} />
+                    <StyledNumber>1</StyledNumber>
                 </StyledCartButton>
                 {cartModalOpen && <CartModal />}
             </StyledMenu>
