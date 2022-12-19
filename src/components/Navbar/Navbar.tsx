@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -29,10 +29,6 @@ const Navbar = () => {
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    const toggleModal = () => {
-        setCartModalOpen((prevState) => !prevState);
-    };
-
     const handleLogout = () => {
         document.cookie = "token=";
         setUserToken("");
@@ -42,6 +38,22 @@ const Navbar = () => {
     useEffect(() => {
         getTotalQuantity()
     }, [getTotalQuantity]);
+
+    const ref = useRef<HTMLInputElement>();
+
+    useEffect(() => {
+        const checkIfClickedOutside = (e: any) => {
+          if (cartModalOpen && ref.current && !ref.current.contains(e.target)) {
+            setCartModalOpen(false);
+          }
+        }
+    
+        document.addEventListener("mousedown", checkIfClickedOutside)
+    
+        return () => {
+          document.removeEventListener("mousedown", checkIfClickedOutside)
+        }
+      }, [cartModalOpen]);
 
     return (
         <StyledNav>
@@ -59,11 +71,11 @@ const Navbar = () => {
                 ) : (
                     <StyledNavLinkActive to="/login">Login</StyledNavLinkActive>
                 )}
-                <StyledCartButton onClick={toggleModal}>
+                <StyledCartButton onClick={() => setCartModalOpen(true)}>
                     <FontAwesomeIcon icon={"shopping-cart"} />
                     <StyledNumber>{totalQuantity}</StyledNumber>
                 </StyledCartButton>
-                {cartModalOpen ? <CartModal /> : null}
+                {cartModalOpen ? <CartModal refs={ref}/> : null}
             </StyledMenu>
         </StyledNav>
     );

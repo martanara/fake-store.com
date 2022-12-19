@@ -12,8 +12,9 @@ import {
     StyledSection
 } from "./CartModal.styles";
 
-const CartModal = () => {
+const CartModal = (props: any) => {
     const { cartProducts, getTotalPrice, totalPrice, removeFromCart } = useAppContext();
+    const { refs } = props;
 
     useEffect(() => {
         getTotalPrice();
@@ -21,7 +22,7 @@ const CartModal = () => {
 
     return (
         <React.Fragment>
-            <StyledCartModal>
+            <StyledCartModal ref={refs}>
                 <StyledModalContent>
                     <h3>Your products:</h3>
                     <StyledList>
