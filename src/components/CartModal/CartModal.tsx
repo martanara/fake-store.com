@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 
 import { useAppContext } from "context/context";
-import { 
-    StyledCartModal, 
-    StyledModalContent, 
-    StyledList, 
-    StyledParagraph, 
-    StyledHeader, 
-    StyledListItem 
+import {
+    StyledCartModal,
+    StyledModalContent,
+    StyledList,
+    StyledParagraph,
+    StyledHeader,
+    StyledListItem,
+    StyledIconButton,
+    StyledSection
 } from "./CartModal.styles";
 
 const CartModal = () => {
-    const { cartProducts, getTotalPrice, totalPrice } = useAppContext();
+    const { cartProducts, getTotalPrice, totalPrice, removeFromCart } = useAppContext();
 
     useEffect(() => {
         getTotalPrice();
@@ -26,8 +28,11 @@ const CartModal = () => {
                         {cartProducts.map((product) => (
                             <StyledListItem key={product.item.id}>
                                 <StyledHeader>{product.item.title}</StyledHeader>
-                                <StyledParagraph>price: &#36;{product.item.price}</StyledParagraph>
-                                <StyledParagraph>quantity: {product.quantity}</StyledParagraph>
+                                <StyledSection>
+                                    <StyledParagraph>price: &#36;{product.item.price}</StyledParagraph>
+                                    <StyledParagraph>quantity: {product.quantity}</StyledParagraph>
+                                    <StyledIconButton icon={"xmark"} onClick={() => removeFromCart(product)} />
+                                </StyledSection>
                             </StyledListItem>
                         ))}
                     </StyledList>

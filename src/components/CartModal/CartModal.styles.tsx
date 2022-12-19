@@ -1,3 +1,4 @@
+import IconButton from "components/IconButton";
 import styled from "styled-components";
 
 export const StyledCartModal = styled.div`
@@ -18,12 +19,18 @@ export const StyledModalContent = styled.div`
     background-color: ${(props) => props.theme.colors.white};
 `;
 
+export const StyledSection = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
 export const StyledHeader = styled.h4`
     margin: 0;
 `;
 
 export const StyledParagraph = styled.p`
-    margin: 0;
+    margin-top: 0;
+    margin-right: 15px;
 `;
 
 export const StyledList = styled.ul`
@@ -34,3 +41,9 @@ export const StyledList = styled.ul`
 export const StyledListItem = styled.li`
     margin: 8px 0;
 `;
+
+export const StyledIconButton = styled(IconButton)`
+    font-size: 15px;
+    color: ${(props) => props.theme.colors.wine};
+`
+

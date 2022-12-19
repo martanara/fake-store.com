@@ -17,7 +17,12 @@ import {
 } from "./Navbar.styles";
 
 const Navbar = () => {
-    const { userToken, setUserToken, getTotalQuantity, totalQuantity } = useAppContext();
+    const { userToken, 
+        setUserToken, 
+        getTotalQuantity, 
+        totalQuantity, 
+        setCartProducts 
+    } = useAppContext();
 
     const [isOpen, setIsOpen] = useState(false);
     const [cartModalOpen, setCartModalOpen] = useState(false);
@@ -31,6 +36,7 @@ const Navbar = () => {
     const handleLogout = () => {
         document.cookie = "token=";
         setUserToken("");
+        setCartProducts([]);
     };
 
     useEffect(() => {

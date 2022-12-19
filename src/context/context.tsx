@@ -40,13 +40,17 @@ export const AppContextProvider = (props: IContextProps) => {
         }
         getTotalPrice();
         getTotalQuantity();
-        
+
         document.documentElement.scrollTo({
             top: 0,
             left: 0,
             behavior: "smooth"
         });
     };
+
+    const removeFromCart = (item: ICartProduct) => {
+        console.log("click");
+    }
 
     const getTotalPrice = () => {
         let totalPrice = 0;
@@ -79,6 +83,7 @@ export const AppContextProvider = (props: IContextProps) => {
                 totalPrice,
                 getTotalQuantity,
                 totalQuantity,
+                removeFromCart
             }}
         >
             {children}
@@ -98,6 +103,7 @@ export const useAppContext = (): IProps => {
         getTotalPrice,
         totalQuantity,
         getTotalQuantity,
+        removeFromCart
     } = useContext(AppContext);
 
     return {
@@ -111,6 +117,7 @@ export const useAppContext = (): IProps => {
         totalPrice,
         totalQuantity,
         getTotalQuantity,
+        removeFromCart
     };
 };
 
@@ -125,4 +132,5 @@ interface IProps {
     totalPrice: number;
     totalQuantity: number;
     getTotalQuantity: () => void;
+    removeFromCart: (arg: ICartProduct) => void; 
 }
