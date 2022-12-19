@@ -40,6 +40,12 @@ export const AppContextProvider = (props: IContextProps) => {
         }
         getTotalPrice();
         getTotalQuantity();
+        
+        document.documentElement.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        });
     };
 
     const getTotalPrice = () => {
