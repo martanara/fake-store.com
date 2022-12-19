@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
 
-import { useAppContext } from "context/context";
 import Heading from "components/Heading";
 import ProductCard from "components/ProductCard";
 import { getSortedList } from "utils/getSortedList";

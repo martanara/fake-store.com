@@ -14,9 +14,10 @@ const Home = () => {
             <Heading>Welcome to FakeStore</Heading>
             <StyledHome>
                 <StyledImgWrapper>
-                    <StyledImg src="https://picsum.photos/id/141/1000/1000" alt="dessert" />
+                    <StyledImg src="https://picsum.photos/id/20/1000/1000" alt="dessert" />
                 </StyledImgWrapper>
                 <StyledDescription>
+                    <h3>About our store</h3>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras in est eget nisi accumsan gravida eu facilisis nunc.
                         Aliquam porttitor lectus eget molestie mollis. Duis convallis tristique risus vitae congue. Ut dignissim orci diam,

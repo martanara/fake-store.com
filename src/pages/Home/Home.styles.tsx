@@ -11,16 +11,12 @@ export const StyledHome = styled.div`
 `;
 export const StyledDescription = styled.div`
     flex: 1;
-    max-width: 700px;
-    margin: 0 auto;
-    padding-left: 10px;
+    padding: 10px;
 `;
 
 export const StyledImgWrapper = styled.div`
     flex: 1;
-    max-width: 700px;
-    margin: 0 auto;
-    padding-right: 10px;
+    padding: 10px;
 
     @media (max-width: 600px) {
         padding-bottom: 20px;
