@@ -48,9 +48,11 @@ export const AppContextProvider = (props: IContextProps) => {
         });
     };
 
-    const removeFromCart = (item: ICartProduct) => {
-        console.log("click");
-    }
+    const removeFromCart = (cartItem: ICartProduct) => {
+        const newState = cartProducts.filter(product => product.item.id !== cartItem.item.id);
+
+        setCartProducts(newState);
+    };
 
     const getTotalPrice = () => {
         let totalPrice = 0;
