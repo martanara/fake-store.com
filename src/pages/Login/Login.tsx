@@ -30,9 +30,9 @@ const Login = () => {
         <React.Fragment>
             <Heading>Please enter your login details</Heading>
             <StyledParagraph>
-                This is a fake login form. All you need to do is enter a whatever email comes to your mind and a short password.
+                This is a fake login form. All you need to do is enter whatever email comes to your mind and a short password.
                 <br></br>
-                A random token will be generated and stored on a cookie to keep you logged in.
+                A random token will be generated and stored in a cookie to keep you logged in.
             </StyledParagraph>
             <StyledLogin>
                 <StyledForm onSubmit={handleSubmit(onSubmit)}>
