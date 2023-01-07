@@ -5,7 +5,8 @@ import Button from "components/Button";
 import { IProduct } from "interfaces";
 import { 
     StyledProductModal, 
-    StyledModalContent, 
+    StyledModalContent,
+    StyledHeader, 
     StyledImgWrapper, 
     StyledProductImg, 
     StyledDescription, 
@@ -25,7 +26,7 @@ const ProductModal = (props: IProductModalProps) => {
     return (
         <StyledProductModal>
             <StyledModalContent>
-                <h2>{product.title}</h2>
+                <StyledHeader>{product.title}</StyledHeader>
                 <StyledImgWrapper>
                     <StyledProductImg src={product.image} alt={product.title} />
                 </StyledImgWrapper>

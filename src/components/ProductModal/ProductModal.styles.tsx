@@ -19,11 +19,18 @@ export const StyledModalContent = styled.div`
     align-items: center;
     padding: 30px;
     max-width: 70%;
+    height: 80%;
     background-color: ${(props) => props.theme.colors.white};
 `;
 
+export const StyledHeader = styled.h2`
+    @media (max-width: 600px) {
+        display: none;
+    }
+`
+
 export const StyledImgWrapper = styled.div`
-    height: 380px;
+    height: 60%;
     padding: 10px;
     background-color: ${(props) => props.theme.colors.white};
 `;
@@ -36,6 +43,10 @@ export const StyledProductImg = styled.img`
 
 export const StyledDescription = styled.p`
     padding: 0 20px;
+
+    @media (max-width: 800px) {
+        display: none;
+    }
 `;
 
 export const StyledButtons = styled.div`
