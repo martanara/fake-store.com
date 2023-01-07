@@ -19,7 +19,7 @@ export const StyledModalContent = styled.div`
     align-items: center;
     padding: 30px;
     max-width: 70%;
-    height: 80%;
+    height: 90%;
     background-color: ${(props) => props.theme.colors.white};
 `;
 
@@ -43,6 +43,8 @@ export const StyledProductImg = styled.img`
 
 export const StyledDescription = styled.p`
     padding: 0 20px;
+    font-size: 14px;
+    margin: 0;
 
     @media (max-width: 800px) {
         display: none;

@@ -17,4 +17,9 @@ export const StyledButton = styled.button`
         border: 2px solid ${(props) => props.theme.colors.green};
         background-color: ${(props) => props.theme.colors.green};
     }
+
+    @media (max-width: 600px) {
+        padding: 10px 22px;
+        font-size: 13px;
+    }
 `;
