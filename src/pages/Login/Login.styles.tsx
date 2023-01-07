@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const StyledParagraph = styled.p`
+    text-align: center;
+`
+
 export const StyledLogin = styled.div`
     display: flex;
     justify-content: center;

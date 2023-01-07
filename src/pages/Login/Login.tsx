@@ -8,11 +8,7 @@ import { getCookie } from "utils/getCookie";
 import Button from "components/Button";
 import Heading from "components/Heading";
 import ErrorMessage from "components/ErrorMessage";
-import { 
-    StyledForm, 
-    StyledFormInput, 
-    StyledLogin 
-} from "./Login.styles";
+import { StyledForm, StyledFormInput, StyledLogin, StyledParagraph } from "./Login.styles";
 
 const Login = () => {
     const { userToken, setUserToken } = useAppContext();
@@ -33,6 +29,11 @@ const Login = () => {
     return (
         <React.Fragment>
             <Heading>Please enter your login details</Heading>
+            <StyledParagraph>
+                This is a fake login form. All you need to do is enter a whatever email comes to your mind and a short password.
+                <br></br>
+                A random token will be generated and stored on a cookie to keep you logged in.
+            </StyledParagraph>
             <StyledLogin>
                 <StyledForm onSubmit={handleSubmit(onSubmit)}>
                     <StyledFormInput
